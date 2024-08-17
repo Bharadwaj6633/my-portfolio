@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href /my-portfolio/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:prod": "http-server dist/my-portfolio -p 8080"
+    "serve:prod": "http-server docs/my-portfolio -p 8080"
   },
   "private": true,
   "dependencies": {
