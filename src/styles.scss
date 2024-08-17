@@ -1,0 +1,53 @@
+/* Reset all elements to have no margin or padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* New smooth scrolling rule */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set the base font and background for the body */
+body {
+  font-family: monospace, Times, serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+  min-height: 250vh;
+}
+
+html {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  overflow: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 1em 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}

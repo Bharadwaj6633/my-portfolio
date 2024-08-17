@@ -1,0 +1,79 @@
+<div class="header">
+  <div class="nav">
+    <div class="header-options">
+      <div class="name">
+        <div class="option  header-name"><span><a>Bharadwaj Adapala.</a></span></div>
+      </div>
+      <div class="header-actions">
+        <div class="option"><span><a href="#skills">Skills</a></span></div>
+        <div class="option"><span><a href="#about">About</a></span></div>
+        <div class="option"><span><a href="#project">Projects</a></span></div>
+        <div class="option"> <span><button class="learn-more">Let's Talk</button></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div id="home" class="landing">
+    <div class="desc-picture">
+      <div class="picture">
+        <img src="assets/skill-icons/portfolio-pic.png" alt="Profile Picture">
+      </div>
+      <div class="desc">
+        <span class="content"> HEY,I'M BHARADWAJ</span>
+        <span class="content-desc">the wizard behind the code! With a knack for crafting web applications that don't just work—they WOW !</span>
+        <span><button class="learn-more"><a href="#project">My Work</a></button></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-skills">
+    <div class="experience box-shadow ">
+      <span class="years">2+</span>
+      <span class="years-desc">Years of expertise in the field</span>
+    </div>
+    <div class="skills">
+      <div class="skill box-shadow "><span>Web Development</span></div>
+      <div class="skill box-shadow "><span>Machine Learning</span></div>
+    </div>
+  </div>
+
+  <div id="skills" class="expertise-skills-tools">
+    <div class="expertiseDesc">Here are more experties in skills and Technology</div>
+    <div class="skills-list">
+      <div *ngFor="let skill of skillsList" class="skill">
+        <div class="skill-image">
+          <img [src]="skill.image" alt="{{skill.name}}">
+        </div>
+        <div class="skill-name">{{skill.name}}</div>
+      </div>      
+    </div>
+  </div>
+  <div class="about">
+    <div id="about" class="about-title">About Bharadwaj Adapala</div>
+    <div class="about-desc">
+      <p>
+        As a <span class="highlight">Senior Software Engineer</span>, I have extensive experience in leading architectural optimizations to enhance the performance and scalability of various software products. I developed and have experience with features that integrate stack components like <span class="highlight"> RabbitMQ, Redis, and Celery </span>to enhance the extraction and retrieval of various source contents.. I have also <span class="highlight">automated database migrations</span> to ensure seamless updates and minimize downtime during deployment cycles, resulting in an improved user experience.
+      </p>
+      <p>
+        In addition to backend development, I specialize in <span class="highlight">frontend development with Angular</span>, where I focus on <span class="highlight">optimizing module performance</span> and integrating advanced features. My experience includes <span class="highlight">designing and implementing robust frameworks</span> for extracting relevant information from documents using information retrieval techniques. These features are integrated seamlessly into existing application architectures, ensuring <span class="highlight">compatibility and scalability</span>. My technical skill set includes a <span class="highlight">strong understanding of data structures, algorithms</span>, and proficiency in programming languages such as JavaScript and Python, as well as experience with containerization technologies like <span class="highlight">Docker and Kubernetes</span>.
+      </p>
+    </div>
+  </div>  
+  <div id="project" class="my-projects-contact-info">
+    <span class="my-projects-heading">My Projects</span>
+    <div class="projects-contianer">
+      <div *ngFor="let project of projectList" class="projects-list">
+        <img class="project-image" [src]="project?.image" alt="">
+        <span class="project-name">{{project?.name}}</span>
+        <span class="project-desc">{{project?.desc}}</span>
+        <a [href]="project?.redirectLink"></a>
+      </div>
+    </div>
+    <div class="contact-info">
+      <span class="contact-info-title">Interested in working with me?</span>
+      <span class="contact-info-desc">I'm always open for discussing product development and partnerships</span>
+      <div class="contact option"> <span><button class="learn-more">Contact Me</button></span></div>
+    </div>
+  </div>
+</div>
