@@ -1,19 +1,19 @@
-<div class="header">
-  <div class="nav">
+<header class="header">
+  <nav class="nav">
     <div class="header-options">
       <div class="name">
-        <div class="option  header-name"><span><a>Bharadwaj Adapala.</a></span></div>
+        <div class="option header-name"><span><a>Bharadwaj Adapala.</a></span></div>
       </div>
       <div class="header-actions">
         <div class="option"><span><a href="#skills">Skills</a></span></div>
         <div class="option"><span><a href="#about">About</a></span></div>
         <div class="option"><span><a href="#project">Projects</a></span></div>
-        <div class="option"> <span><button class="learn-more">Let's Talk</button></span></div>
+        <div class="option"><span><a (click)="openContactModal()">Let's Talk</a></span></div>
       </div>
     </div>
-  </div>
-</div>
-<div class="main">
+  </nav>
+</header>
+<main class="main">
   <div id="home" class="landing">
     <div class="desc-picture">
       <div class="picture">
@@ -52,28 +52,85 @@
   <div class="about">
     <div id="about" class="about-title">About Bharadwaj Adapala</div>
     <div class="about-desc">
-      <p>
-        As a <span class="highlight">Senior Software Engineer</span>, I have extensive experience in leading architectural optimizations to enhance the performance and scalability of various software products. I developed and have experience with features that integrate stack components like <span class="highlight"> RabbitMQ, Redis, and Celery </span>to enhance the extraction and retrieval of various source contents.. I have also <span class="highlight">automated database migrations</span> to ensure seamless updates and minimize downtime during deployment cycles, resulting in an improved user experience.
-      </p>
-      <p>
-        In addition to backend development, I specialize in <span class="highlight">frontend development with Angular</span>, where I focus on <span class="highlight">optimizing module performance</span> and integrating advanced features. My experience includes <span class="highlight">designing and implementing robust frameworks</span> for extracting relevant information from documents using information retrieval techniques. These features are integrated seamlessly into existing application architectures, ensuring <span class="highlight">compatibility and scalability</span>. My technical skill set includes a <span class="highlight">strong understanding of data structures, algorithms</span>, and proficiency in programming languages such as JavaScript and Python, as well as experience with containerization technologies like <span class="highlight">Docker and Kubernetes</span>.
-      </p>
+      <div class="professional-experience">
+        <h3><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h3>
+        <div class="experience-item">
+          <p><strong>Senior Software Engineer, Kore.ai</strong> &nbsp;&nbsp;&nbsp;&nbsp; January 2024 – Present</p>
+          <ul>
+            <li>Enhanced Answer Generation Accuracy: Boosted answer generation accuracy using advanced retrieval techniques like Sentence Windowing and Fusion Retrievals, improving the quality of search results (48% to 57% in an implemented use case).</li>
+            <li>Implemented Rate Limiting Framework: Designed and implemented a tenant level rate-limiting framework for scalable use across multiple organizational products, enhancing system stability which brought down the load on servers and downtimes prevented automation testing suites on production servers and also was useful for pricing.</li>
+            <li>Automated Database Migrations: Developed a custom Node.js module for CI/CD pipeline integration, automating database migrations, minimizing downtime, and reducing human errors during deployment (at least once in a 2 deployments manual error of missing db migration script by devops to 0).</li>
+            <li>Containerization for Kubernetes: Containerized the entire application code and stack, including UI, Node.js, and Python services, for seamless deployment in Kubernetes environments.</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <p><strong>Software Engineer, Kore.ai</strong> &nbsp;&nbsp;&nbsp;&nbsp; January 2023 – December 2023</p>
+          <ul>
+            <li>Optimized ETL Pipelines: Improved data extraction efficiency by migrating the code from python layer to node js, token-based extraction, and OCR techniques for diverse file types.</li>
+            <li>Built RAG Framework: Contributed to the development of foundational Extraction components for a Retrieval-Augmented Generation (RAG) framework.</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <p><strong>Associate Software Engineer, Kore.ai</strong> &nbsp;&nbsp;&nbsp;&nbsp; April 2022 – December 2022</p>
+          <ul>
+            <li>Connector Integration Framework Development: Built a comprehensive tracking framework for multiple connectors, including but not limited to SharePoint and Google Drive, enabling efficient content management and retrieval from various knowledge sources.</li>
+            <li>UI Optimization: Improved module performance using lazy loading and service workers, decreasing build size, reducing API call frequency and enhancing user experience which brought down loading time of application from 8 - 3 seconds.</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <p><strong>Software Engineering Intern, Kore.ai</strong> &nbsp;&nbsp;&nbsp;&nbsp; October 2021 – March 2022</p>
+          <ul>
+            <li>Product Onboarding Module: Developed user-friendly onboarding experience for Kore.ai’s product, improving the first-time user journey.</li>
+            <li>Implemented i18n for Angular UI: Enabled internationalization in Angular applications, ensuring seamless localization and multi-language support.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>  
   <div id="project" class="my-projects-contact-info">
     <span class="my-projects-heading">My Projects</span>
-    <div class="projects-contianer">
-      <div *ngFor="let project of projectList" class="projects-list">
-        <img class="project-image" [src]="project?.image" alt="">
-        <span class="project-name">{{project?.name}}</span>
-        <span class="project-desc">{{project?.desc}}</span>
-        <a [href]="project?.redirectLink"></a>
+    <div class="projects-container">
+      <div class="projects-list-wrapper">
+        <div *ngFor="let project of projectList" class="projects-list">
+          <div class="project-icon-wrapper">
+            <i class="fas fa-leaf project-icon"></i>
+          </div>
+          <span class="project-name">{{project?.name}}</span>
+          <span class="project-desc">{{project?.desc}}</span>
+          <a [href]="project?.redirectLink" target="_blank">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
       </div>
     </div>
-    <div class="contact-info">
+    <div class="contact-info" id="contact">
       <span class="contact-info-title">Interested in working with me?</span>
       <span class="contact-info-desc">I'm always open for discussing product development and partnerships</span>
-      <div class="contact option"> <span><button class="learn-more">Contact Me</button></span></div>
+      <div class="contact option">
+        <span><button class="learn-more" (click)="openContactModal()">Contact Me</button></span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Contact Modal -->
+<div class="contact-modal" [class.show]="isContactModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeContactModal()">&times;</span>
+    <h2>Contact Information</h2>
+    <p><i class="fas fa-envelope"></i>:  Bharadwajadapala28&#64;gmail.com</p>
+    <p><i class="fas fa-phone"></i>:  +917989488047</p>
+    <div class="social-links">
+      <a href="https://github.com/Bharadwaj6633" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/bharadwaj-adapala-378a6a187/" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.npmjs.com/~bharadwaj_adapala" target="_blank">
+        <i class="fab fa-npm"></i>
+      </a>
     </div>
   </div>
 </div>
+  
