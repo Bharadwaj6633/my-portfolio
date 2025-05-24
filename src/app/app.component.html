@@ -2,135 +2,305 @@
   <nav class="nav">
     <div class="header-options">
       <div class="name">
-        <div class="option header-name"><span><a>Bharadwaj Adapala.</a></span></div>
+        <div class="option header-name"><span><a>Bharadwaj👨🏻‍💻</a></span></div>
       </div>
       <div class="header-actions">
-        <div class="option"><span><a href="#skills">Skills</a></span></div>
         <div class="option"><span><a href="#about">About</a></span></div>
-        <div class="option"><span><a href="#project">Projects</a></span></div>
-        <div class="option"><span><a (click)="openContactModal()">Let's Talk</a></span></div>
+        <div class="option"><span><a href="#experience">Experience</a></span></div>
+        <div class="option"><span><a href="#skills">Skills</a></span></div>
+        <div class="option"><span><a href="#certificates">Certificates</a></span></div>
+        <div class="option"><span><a href="#projects">Projects</a></span></div>
+        <div class="option contact-btn"><span><a (click)="openContactModal()">Contact</a></span></div>
+      </div>
+      <div class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+        <i class="fas" [ngClass]="isMobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
       </div>
     </div>
   </nav>
+  <div class="mobile-menu" [class.open]="isMobileMenuOpen">
+    <div class="mobile-menu-item"><a href="#about" (click)="closeMobileMenu()">About</a></div>
+    <div class="mobile-menu-item"><a href="#experience" (click)="closeMobileMenu()">Experience</a></div>
+    <div class="mobile-menu-item"><a href="#skills" (click)="closeMobileMenu()">Skills</a></div>
+    <div class="mobile-menu-item"><a href="#certificates" (click)="closeMobileMenu()">Certificates</a></div>
+    <div class="mobile-menu-item"><a href="#projects" (click)="closeMobileMenu()">Projects</a></div>
+    <div class="mobile-menu-item"><a (click)="openContactModalMobile()">Contact</a></div>
+  </div>
 </header>
+
 <main class="main">
-  <div id="home" class="landing">
-    <div class="desc-picture">
-      <div class="picture">
-        <img src="assets/skill-icons/portfolio-pic.png" alt="Profile Picture">
-      </div>
-      <div class="desc">
-        <span class="content"> HEY,I'M BHARADWAJ</span>
-        <span class="content-desc">the wizard behind the code! With a knack for crafting web applications that don't just work—they WOW !</span>
-        <span><button class="learn-more"><a href="#project">My Work</a></button></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="experience-skills">
-    <div class="experience box-shadow ">
-      <span class="years">2+</span>
-      <span class="years-desc">Years of expertise in the field</span>
-    </div>
-    <div class="skills">
-      <div class="skill box-shadow "><span>Web Development</span></div>
-      <div class="skill box-shadow "><span>Machine Learning</span></div>
-    </div>
-  </div>
-
-  <div id="skills" class="expertise-skills-tools">
-    <div class="expertiseDesc">Here are more experties in skills and Technology</div>
-    <div class="skills-list">
-      <div *ngFor="let skill of skillsList" class="skill">
-        <div class="skill-image">
-          <img [src]="skill.image" alt="{{skill.name}}">
-        </div>
-        <div class="skill-name">{{skill.name}}</div>
-      </div>      
-    </div>
-  </div>
-  <div class="about">
-    <div id="about" class="about-title">About Bharadwaj Adapala</div>
-    <div class="about-desc">
-      <div class="professional-experience">
-        <h3><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h3>
-        <div class="experience-item">
-          <p><strong>Senior Software Engineer, Kore.ai</strong> &nbsp;&nbsp;&nbsp;&nbsp; January 2024 – Present</p>
-          <ul>
-            <li>Enhanced Answer Generation Accuracy: Boosted answer generation accuracy using advanced retrieval techniques like Sentence Windowing and Fusion Retrievals, improving the quality of search results (48% to 57% in an implemented use case).</li>
-            <li>Implemented Rate Limiting Framework: Designed and implemented a tenant level rate-limiting framework for scalable use across multiple organizational products, enhancing system stability which brought down the load on servers and downtimes prevented automation testing suites on production servers and also was useful for pricing.</li>
-            <li>Automated Database Migrations: Developed a custom Node.js module for CI/CD pipeline integration, automating database migrations, minimizing downtime, and reducing human errors during deployment (at least once in a 2 deployments manual error of missing db migration script by devops to 0).</li>
-            <li>Containerization for Kubernetes: Containerized the entire application code and stack, including UI, Node.js, and Python services, for seamless deployment in Kubernetes environments.</li>
-          </ul>
-        </div>
-        <div class="experience-item">
-          <p><strong>Software Engineer, Kore.ai</strong> &nbsp;&nbsp;&nbsp;&nbsp; January 2023 – December 2023</p>
-          <ul>
-            <li>Optimized ETL Pipelines: Improved data extraction efficiency by migrating the code from python layer to node js, token-based extraction, and OCR techniques for diverse file types.</li>
-            <li>Built RAG Framework: Contributed to the development of foundational Extraction components for a Retrieval-Augmented Generation (RAG) framework.</li>
-          </ul>
-        </div>
-        <div class="experience-item">
-          <p><strong>Associate Software Engineer, Kore.ai</strong> &nbsp;&nbsp;&nbsp;&nbsp; April 2022 – December 2022</p>
-          <ul>
-            <li>Connector Integration Framework Development: Built a comprehensive tracking framework for multiple connectors, including but not limited to SharePoint and Google Drive, enabling efficient content management and retrieval from various knowledge sources.</li>
-            <li>UI Optimization: Improved module performance using lazy loading and service workers, decreasing build size, reducing API call frequency and enhancing user experience which brought down loading time of application from 8 - 3 seconds.</li>
-          </ul>
-        </div>
-        <div class="experience-item">
-          <p><strong>Software Engineering Intern, Kore.ai</strong> &nbsp;&nbsp;&nbsp;&nbsp; October 2021 – March 2022</p>
-          <ul>
-            <li>Product Onboarding Module: Developed user-friendly onboarding experience for Kore.ai’s product, improving the first-time user journey.</li>
-            <li>Implemented i18n for Angular UI: Enabled internationalization in Angular applications, ensuring seamless localization and multi-language support.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>  
-  <div id="project" class="my-projects-contact-info">
-    <span class="my-projects-heading">My Projects</span>
-    <div class="projects-container">
-      <div class="projects-list-wrapper">
-        <div *ngFor="let project of projectList" class="projects-list">
-          <div class="project-icon-wrapper">
-            <i class="fas fa-leaf project-icon"></i>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="greeting">Hey, I'm</span>
+          <h1>{{ name }}</h1>
+          <h2>{{ currentDesignation }}</h2>
+          <div class="typing-container">
+            <span class="typing-text">Specialized in </span>
+            <span class="typing-dynamic">{{ currentSpecialty }}</span>
           </div>
-          <span class="project-name">{{project?.name}}</span>
-          <span class="project-desc">{{project?.desc}}</span>
-          <a [href]="project?.redirectLink" target="_blank">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
+          <p class="professional-summary">{{ professionalSummary }}</p>
+          <div class="hero-cta">
+            <a href="#experience" class="btn primary-btn">View Experience</a>
+            <a href="#projects" class="btn secondary-btn">My Projects</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="slideshow-container">
+            <div class="slide" [class.active]="currentSlideIndex === 0">
+              <img src="assets/skill-icons/F96FBFAF-F96D-4223-8CD8-BDBD8AFBB824_1_105_c.jpeg" alt="Profile Picture 1">
+            </div>
+            <div class="slide" [class.active]="currentSlideIndex === 1">
+              <img src="assets/skill-icons/F96FBFAF-F96D-4223-8CD8-BDBD8AFBB824_1_105_c.jpeg" alt="Profile Picture 2">
+            </div>
+            <div class="slideshow-nav">
+              <div class="nav-dot" [class.active]="currentSlideIndex === 0" (click)="setSlide(0)"></div>
+              <div class="nav-dot" [class.active]="currentSlideIndex === 1" (click)="setSlide(1)"></div>
+            </div>
+            <!-- <button class="slide-arrow prev" (click)="prevSlide()">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slide-arrow next" (click)="nextSlide()">
+              <i class="fas fa-chevron-right"></i>
+            </button> -->
+          </div>
+          <div class="blur-circle circle-1"></div>
+          <div class="blur-circle circle-2"></div>
         </div>
       </div>
     </div>
-    <div class="contact-info" id="contact">
-      <span class="contact-info-title">Interested in working with me?</span>
-      <span class="contact-info-desc">I'm always open for discussing product development and partnerships</span>
-      <div class="contact option">
-        <span><button class="learn-more" (click)="openContactModal()">Contact Me</button></span>
+    <div class="scroll-down">
+      <a href="#about">
+        <span class="mouse">
+          <span class="wheel"></span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">About Me</h2>
+      <div class="about-content">
+        <div class="about-stats" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-card" [class.single-card]="getVisibleStatsCount() === 1">
+            <div class="stat-value counter" [attr.data-target]="yearsOfExperience">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <!-- <div class="stat-card">
+            <div class="stat-value counter" [attr.data-target]="40">0</div>
+            <div class="stat-label">Enterprise Clients</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value counter" [attr.data-target]="20">0</div>
+            <div class="stat-label">Revenue Growth %</div>
+          </div> -->
+        </div>
+        <div class="about-text" data-aos="fade-up" data-aos-delay="200">
+          <p>As a Senior Software Engineer specialized in AI & ML technologies, I've spent the last 3 years at the
+            forefront of Retrieval-Augmented Generation (RAG) and autonomous agent development platform. I've been
+            instrumental in building and scaling AI products that solve real-world enterprise challenges using Large
+            Language Models.</p>
+          <p>My expertise spans across the entire AI systems development lifecycle - from research and prototyping to
+            production deployment and optimization. I'm particularly passionate about creating scalable, reliable
+            systems that deliver tangible business value.</p>
+          <p>Throughout my career at previous organisation, I've grown to an experieced engineer, consistently taking on
+            challenging problems and leading initiatives that drive innovation. I enjoy working with cross-functional
+            teams and mentoring junior developers to build their technical skills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
+      <div class="experience-timeline">
+        <div *ngFor="let exp of experienceList; let i = index" class="experience-card" [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 100">
+          <div class="experience-header">
+            <h3>{{ exp.title }}</h3>
+            <div class="company-info">
+              <span class="company-name">{{ exp.company }}</span>
+              <span class="experience-period">{{ exp.period }}</span>
+              <span class="experience-location">{{ exp.location }}</span>
+            </div>
+          </div>
+          <div class="experience-content">
+            <ul class="achievements-list">
+              <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-shape shape-left"></div>
+    <div class="bg-shape shape-right"></div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Skills & Technologies</h2>
+      <div class="skills-tabs" data-aos="fade-up" data-aos-delay="100">
+        <div class="tabs-header">
+          <div *ngFor="let category of skillCategories; let i = index" class="tab-item"
+            [class.active]="activeSkillCategory === category" (click)="setActiveSkillCategory(category)">
+            {{ category }}
+          </div>
+        </div>
+        <div class="tabs-content">
+          <div class="tab-panel active">
+            <div class="skills-grid">
+              <div *ngFor="let skill of getSkillsByCategory(activeSkillCategory); let i = index" class="skill-card"
+                [attr.data-aos]="'zoom-in'" [attr.data-aos-delay]="i * 50">
+                <div class="skill-icon">
+                  <img [src]="skill.image" alt="{{ skill.name }} Icon">
+                </div>
+                <div class="skill-name">{{ skill.name }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tech-bg"></div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="certificates-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Certificates</h2>
+      <div class="certificates-grid" data-aos="fade-up" data-aos-delay="100">
+        <div *ngFor="let certificate of certificatesList; let i = index" class="certificate-card" 
+          [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
+          <div class="certificate-icon">
+            <img [src]="certificate.image" alt="{{ certificate.name }} Logo">
+          </div>
+          <div class="certificate-content">
+            <h3 class="certificate-name">{{ certificate.name }}</h3>
+            <p class="certificate-issuer">{{ certificate.issuer }}</p>
+             <!-- <p class="certificate-date">{{ certificate.date }}</p>
+            <a *ngIf="certificate.credentialLink" [href]="certificate.credentialLink" target="_blank" class="credential-link">
+              <i class="fas fa-external-link-alt"></i> View Credential
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-pattern certificates-pattern"></div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Key Projects</h2>
+      <div class="projects-filter" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" (click)="filterProjects('all')">All</button>
+        <button class="filter-btn" (click)="filterProjects('ai')">AI</button>
+        <button class="filter-btn" (click)="filterProjects('backend')">Backend</button>
+        <button class="filter-btn" (click)="filterProjects('frontend')">Frontend</button>
+      </div>
+      <div class="projects-grid" data-aos="fade-up" data-aos-delay="200">
+        <div *ngFor="let project of filteredProjects; let i = index" class="project-card" [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 100">
+          <div class="project-image">
+            <img [src]="project.image" alt="{{ project.name }}">
+            <div class="project-type-badge personal"
+              [ngClass]="{'personal': project.type === 'personal', 'organization': project.type === 'organization'}">
+              {{ project.type }}
+            </div>
+            <div class="project-overlay">
+              <a [href]="project.redirectLink" target="_blank" class="view-project">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">{{ project.name }}</h3>
+            <p class="project-description">{{ project.desc }}</p>
+            <div class="project-technologies">
+              <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+      <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-text">
+          <p>Interested in working together or discussing potential opportunities? I'm always open to new challenges and
+            collaborations.</p>
+          <div class="contact-cta">
+            <button class="btn primary-btn pulse-btn" (click)="openContactModal()">Contact Me</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-pattern"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-copyright">
+        <p>&copy; 2024 Bharadwaj Adapala. All rights reserved.</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/bharadwaj-adapala-378a6a187/" target="_blank" aria-label="LinkedIn"
+          class="social-icon-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/Bharadwaj6633" target="_blank" aria-label="GitHub" class="social-icon-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.npmjs.com/~bharadwaj_adapala" target="_blank" aria-label="NPM" class="social-icon-link">
+          <i class="fab fa-npm"></i>
+        </a>
       </div>
     </div>
   </div>
-</main>
+</footer>
 
 <!-- Contact Modal -->
 <div class="contact-modal" [class.show]="isContactModalOpen">
   <div class="modal-content">
     <span class="close" (click)="closeContactModal()">&times;</span>
     <h2>Contact Information</h2>
-    <p><i class="fas fa-envelope"></i>:  Bharadwajadapala28&#64;gmail.com</p>
-    <p><i class="fas fa-phone"></i>:  +917989488047</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>Bharadwajadapala28&#64;gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+91 7989488047</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Hyderabad, India</span>
+      </div>
+    </div>
     <div class="social-links">
-      <a href="https://github.com/Bharadwaj6633" target="_blank">
+      <a href="https://www.linkedin.com/in/bharadwaj-adapala-378a6a187/" target="_blank" aria-label="LinkedIn"
+        class="social-link">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="https://www.linkedin.com/in/bharadwaj-adapala-378a6a187/" target="_blank">
+      <a href="https://github.com/Bharadwaj6633" target="_blank" aria-label="GitHub" class="social-link">
         <i class="fab fa-github"></i>
       </a>
-      <a href="https://www.npmjs.com/~bharadwaj_adapala" target="_blank">
+      <a href="https://www.npmjs.com/~bharadwaj_adapala" target="_blank" aria-label="NPM" class="social-link">
         <i class="fab fa-npm"></i>
       </a>
     </div>
   </div>
 </div>
-  
